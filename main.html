@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+	<link rel="manifest" href="assets/images/site.webmanifest">
+	<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="msapplication-TileColor" content="#0d2c57">
+	<meta name="msapplication-config" content="assets/images/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<title>Febo — Личный кабинет</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
+</head>
+
+<body>
+	<div id="layout">
+		<aside id="side">
+			<a href="/" id="logo"><img src="assets/images/logo.png" alt="Febo Mobi" title="Febo Mobi"></a>
+
+			<button id="balance" class="btn">
+				<span class="value">€12</span><!--
+				--><a href="/topup.html" class="topup"></a>
+			</button>
+
+			<nav id="mn-main">
+				<ul>
+					<li class="active"><a href="main.html"><img src="assets/images/ico_home.svg" alt="Главная" title="Главная" class="ico svg">Главная</a></li>
+					<li><a href="tariffs.html"><img src="assets/images/ico_tariffs.svg" alt="Тарифы" title="Тарифы" class="ico svg">Тарифы</a></li>
+					<li><a href="history.html"><img src="assets/images/ico_history.svg" alt="История платежей" title="История платежей" class="ico svg">История платежей</a></li>
+					<li><a href="support.html"><img src="assets/images/ico_support.svg" alt="Поддержка" title="Поддержка" class="ico svg">Поддержка</a></li>
+				</ul>
+			</nav>
+
+			<div id="actions">
+				<a href="sim-order.html"><button class="btn">Заказать SIM карту</button></a>
+				<a href="sim-activate.html"><button class="btn type2">Активировать SIM карту</button></a>
+			</div>
+
+			<div id="numbers">
+				<div class="number">
+					<div class="label">Ваш номер Febo</div>
+					<input type="radio" name="number" value="+79374647364" id="number-febo" checked="checked">
+					<label for="number-febo">+79374647364</label>
+					<a href="change_number.html" class="change-link">Выбрать</a>
+				</div>
+				<div class="number">
+					<div class="label">Ваш локальный номер</div>
+					<input type="radio" name="number" value="+79374647364" id="number-local">
+					<label for="number-local">+79374647364</label>
+				</div>
+			</div>
+
+			<div id="logout">
+				<a href="#">Выйти</a>
+			</div>
+
+			<div id="mn-languages">
+				<ul>
+					<li class="active"><a href="#">Русский</a></li><!--
+					--><li><a href="#">English</a></li>
+				</ul>
+			</div>
+		</aside>
+
+		<main id="content">
+			<div id="content-main" class="content-text lightblue">
+				<h1>Главная</h1>
+
+				<div id="bl-actions">
+					<ul>
+						<li>
+							<div class="chart"><img src="assets/images/_chart1.png" alt="Germany" title="Germany"></div>
+							<div class="info">Germany <span>Zone 1</span></div>
+						</li><!--
+						--><li>
+							<div class="chart"><img src="assets/images/_chart2.png" alt="Canada" title="Canada"></div>
+							<div class="info">Canada <span>Zone 1</span></div>
+						</li><!--
+						--><li class="buy">
+							<button>Buy</button>
+							<div class="info"><a href="#">Buy internet in another zone</a></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="content-text blue">
+				<div id="bl-features">
+					<ul>
+						<li>
+							<icon><img src="assets/images/ico_feature1.svg" alt="Top up your account and call abroad right now" title="Top up your account and call abroad right now"></icon>
+							<h2>Top up your account and call abroad right now</h2>
+							<p class="note">The tariff will be visible when dialing.</p>
+						</li>
+						<li>
+							<icon><img src="assets/images/ico_feature2.svg" alt="Get cashback to your Febo account for incoming calls" title="Get cashback to your Febo account for incoming calls"></icon>
+							<h2>Get cashback to your Febo account for incoming calls</h2>
+						</li>
+						<li>
+							<icon><img src="assets/images/ico_feature3.svg" alt="Connect your number and it will be determined to travel like at home" title="Connect your number and it will be determined to travel like at home"></icon>
+							<h2>Connect your number and it will be determined to travel like at home</h2>
+						</li>
+						<li>
+							<icon><img src="assets/images/ico_feature4.svg" alt="Order Febo sim card for cheap internet abroad" title="Order Febo sim card for cheap internet abroad"></icon>
+							<h2>Order Febo sim card for cheap internet abroad</h2>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<div class="modal-fadeout"></div>
+
+	<div class="modal-wrapper" id="modal-confirm">
+		<div class="modal">
+			<div class="contents">
+				<div class="modal-close" title="Заркыть"></div>				
+
+				<div class="h1">Вы действительно хотите выйти?</div>
+
+				<button class="btn js-cancel">Отмена</button><button class="btn type3" id="modal-confirm-action-btn">Да</button>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="assets/js/scripts.js"></script>
+</body>
+</html>

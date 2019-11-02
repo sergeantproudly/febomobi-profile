@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+	<link rel="manifest" href="assets/images/site.webmanifest">
+	<link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="msapplication-TileColor" content="#0d2c57">
+	<meta name="msapplication-config" content="assets/images/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<title>Febo — Личный кабинет</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
+</head>
+
+<body>
+	<div id="layout">
+		<aside id="side">
+			<a href="/" id="logo"><img src="assets/images/logo.png" alt="Febo Mobi" title="Febo Mobi"></a>
+
+			<button id="balance" class="btn">
+				<span class="value">€12</span><!--
+				--><a href="/topup.html" class="topup"></a>
+			</button>
+
+			<nav id="mn-main">
+				<ul>
+					<li><a href="main.html"><img src="assets/images/ico_home.svg" alt="Главная" title="Главная" class="ico svg">Главная</a></li>
+					<li><a href="tariffs.html"><img src="assets/images/ico_tariffs.svg" alt="Тарифы" title="Тарифы" class="ico svg">Тарифы</a></li>
+					<li><a href="history.html"><img src="assets/images/ico_history.svg" alt="История платежей" title="История платежей" class="ico svg">История платежей</a></li>
+					<li><a href="support.html"><img src="assets/images/ico_support.svg" alt="Поддержка" title="Поддержка" class="ico svg">Поддержка</a></li>
+				</ul>
+			</nav>
+
+			<div id="actions">
+				<a href="sim-order.html"><button class="btn">Заказать SIM карту</button></a>
+				<a href="sim-activate.html"><button class="btn type2">Активировать SIM карту</button></a>
+			</div>
+
+			<div id="numbers">
+				<div class="number">
+					<div class="label">Ваш номер Febo</div>
+					<input type="radio" name="number" value="+79374647364" id="number-febo" checked="checked">
+					<label for="number-febo">+79374647364</label>
+					<a href="change_number.html" class="change-link">Выбрать</a>
+				</div>
+				<div class="number">
+					<div class="label">Ваш локальный номер</div>
+					<input type="radio" name="number" value="+79374647364" id="number-local">
+					<label for="number-local">+79374647364</label>
+				</div>
+			</div>
+
+			<div id="logout">
+				<a href="#">Выйти</a>
+			</div>
+
+			<div id="mn-languages">
+				<ul>
+					<li class="active"><a href="#">Русский</a></li><!--
+					--><li><a href="#">English</a></li>
+				</ul>
+			</div>
+		</aside>
+
+		<main id="content">
+			<div id="content-sim" class="content-modal">
+
+				<div class="modal">
+					<h1>Заказать SIM карту</h1>
+					<div class="text">
+						<p>Для заказа SIM карты отсавьте ваши данные, мы свяжемся с вами и договоримся куда ее доставить</p>
+					</div>
+
+					<form action="#" method="post" id="sim-order-form">
+						<div class="form">
+							<input type="text" name="name" value="" placeholder="Ваше имя" tabindex="1" autocomplete="off" required autofocus>
+							<input type="tel" name="tel" value="" placeholder="Телефон" tabindex="2" autocomplete="off" required>
+
+							<input type="submit" name="subm" value="Продолжить" class="btn" disabled tabindex="3">
+						</div>
+					</form>			
+				</div>
+
+			</div>
+		</main>
+	</div>
+
+	<div class="modal-fadeout"></div>
+
+	<div class="modal-wrapper" id="modal-confirm">
+		<div class="modal">
+			<div class="contents">
+				<div class="modal-close" title="Заркыть"></div>				
+
+				<div class="h1">Вы действительно хотите выйти?</div>
+
+				<button class="btn js-cancel">Отмена</button><button class="btn type3" id="modal-confirm-action-btn">Да</button>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="assets/js/scripts.js"></script>
+</body>
+</html>
