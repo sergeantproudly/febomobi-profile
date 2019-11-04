@@ -33,7 +33,7 @@
 					<li><a href="main.html"><img src="assets/images/ico_home.svg" alt="Главная" title="Главная" class="ico svg">Главная</a></li>
 					<li><a href="tariffs.html"><img src="assets/images/ico_tariffs.svg" alt="Тарифы" title="Тарифы" class="ico svg">Тарифы</a></li>
 					<li><a href="history.html"><img src="assets/images/ico_history.svg" alt="История платежей" title="История платежей" class="ico svg">История платежей</a></li>
-					<li><a href="support.html"><img src="assets/images/ico_support.svg" alt="Поддержка" title="Поддержка" class="ico svg">Поддержка</a></li>
+					<!--<li><a href="support.html"><img src="assets/images/ico_support.svg" alt="Поддержка" title="Поддержка" class="ico svg">Поддержка</a></li>-->
 				</ul>
 			</nav>
 
@@ -76,11 +76,15 @@
 
 					<form action="#" method="post">
 						<div class="form">
-							<input type="text" name="sum" value="" placeholder="Сумма" class="js-number" tabindex="1" autofocus>
-							<input type="text" name="card_number" value="" placeholder="Номер карты" class="js-card-number" tabindex="2" autocomplete="off">
-							<input type="text" name="date" value="" placeholder="Дата" class="halfed js-card-date" tabindex="3" autocomplete="off">
-							<input type="text" name="cvc" value="" placeholder="CVC/CVV" class="halfed js-number" maxlength="3" tabindex="4" autocomplete="off">
-							<input type="text" name="cardholder_name" value="" placeholder="Имя на карте" class="js-cardholder-name" tabindex="5" autocomplete="off">
+							<div class="input-holder"><input type="text" name="sum" value="" placeholder="Сумма" id="topup-sum" class="js-number" tabindex="1" autofocus><i>Сумма</i><i class="exp">мин. 5€</i></div>
+
+							<div class="input-holder"><input type="text" name="card_number" value="" placeholder="Номер карты" class="js-card-number" tabindex="2" autocomplete="off"><i>Номер карты</i><div class="error">Номер карты указан неверно</div></div>
+
+							<div class="input-holder halfed"><input type="text" name="date" value="" placeholder="Дата" class="js-card-date" tabindex="3" autocomplete="off"><i>Дата</i><div class="error">Дата должна быть указана в формате мм/гг</div></div>
+
+							<div class="input-holder halfed"><input type="text" name="cvc" value="" placeholder="CVC/CVV" class="js-number js-card-cvc" maxlength="3" tabindex="4" autocomplete="off"><i>CVC/CVV</i><div class="error">Введите три цифры с обратной стороны карты</div></div>
+
+							<div class="input-holder"><input type="text" name="cardholder_name" value="" placeholder="Имя на карте" class="js-cardholder-name" tabindex="5" autocomplete="off"><i>Имя на карте</i></div>
 
 							<div class="cb-section">
 								<input type="checkbox" name="card_save" checked="checked" id="topup-card-save" tabindex="6">

@@ -54,6 +54,24 @@ function initElements(element) {
     };
     $.datepicker.setDefaults($.datepicker.regional['ru']);
 
+    $element.find('.input-holder input').keydown(function() {
+		if ($(this).val()) {
+			$(this).parent('.input-holder').addClass('focused');
+		}
+	}).keyup(function() {
+		if (!$(this).val()) {
+			$(this).parent('.input-holder').removeClass('focused');
+		}
+	}).focusout(function() {
+		if (!$(this).val()) {
+			$(this).parent('.input-holder').removeClass('focused');
+		}
+	}).each(function(i, item) {
+		if ($(item).val()) {
+			$(item).parent('.input-holder').addClass('focused');
+		}
+	});
+
 	$element.find('select').each(function(i, select) {
 		// editable select
 		if (typeof($(select).attr('editable')) != 'undefined' && $(select).attr('editable') !== 'false') {
@@ -790,20 +808,48 @@ function _scrollTo(target, offset) {
 		}
 
 		// INPUTS
-		$('.js-card-number').on('input change blur keyup', function() {
-			var code = $(this).val().replace(/[^\d]/g, '').substring(0, 16);
-		    code = code != '' ? code.match(/.{1,4}/g).join(' ') : '';
-		    $(this).val(code);
+		function inputError(input) {
+			$(input).addClass('invalid').siblings('.error').stop().slideDown(__animationSpeed);
+		}
+		function inputReset(input) {
+			$(input).removeClass('invalid').siblings('.error').stop().slideUp(__animationSpeed);
+		}
+
+		$('.js-card-number').on('input change keyup', function() {
+			inputReset(this);
+			var number = $(this).val().replace(/[^\d]/g, '').substring(0, 19);
+		    number = number != '' ? number.match(/.{1,4}/g).join(' ') : '';
+		    $(this).val(number);
 		});
-		$('.js-card-date').on('input change blur keyup', function() {
+		$('.js-card-number').focusout(function() {
+			var number = $(this).val().replace(/[^\d]/g, '').substring(0, 19);
+			if (number.length < 13 || number.length > 19) {
+				inputError(this);
+			}
+		});
+		$('.js-card-date').on('input change keyup', function() {
+			inputReset(this);
 			var date = $(this).val().replace(/[^\d]/g, '').substring(0, 4);
-			date = date != '' ? date.match(/.{1,2}/g).join('.') : '';
+			date = date != '' ? date.match(/.{1,2}/g).join('/') : '';
 		    $(this).val(date);
 		});
-		$('.js-number').on('input change blur keyup', function() {
+		$('.js-card-date').focusout(function() {
+			var date = $(this).val().replace(/[^\d]/g, '').substring(0, 4);
+			if (date.length != 4) {
+				inputError(this);
+			}
+		});
+		$('.js-number').on('input change keyup', function() {
+			inputReset(this);
 			$(this).val($(this).val().replace(/[^0-9]/g, ''));
 		});
-		$('.js-cardholder-name').on('input change blur keyup', function() {
+		$('.js-card-cvc').focusout(function() {
+			var code = $(this).val().replace(/[^\d]/g, '');
+			if (code.length < 3) {
+				inputError(this);
+			}
+		});
+		$('.js-cardholder-name').on('input change keyup', function() {
 			$(this).val($(this).val().replace(/[^a-zA-Z -]/ig,'').toUpperCase());
 		});
 

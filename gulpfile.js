@@ -20,7 +20,8 @@ const jsFiles = [
 	'./src/js/jquery.animateNumber.js',
 	'./src/js/slick.min.js',	
 	'./src/js/wow.min.js',
-	'./src/js/scripts.js'
+	'./src/js/scripts.js',
+	'./src/js/chat.js'
 ];
 
 sass.compiler = require('node-sass');
