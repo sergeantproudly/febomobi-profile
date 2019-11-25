@@ -853,5 +853,34 @@ function _scrollTo(target, offset) {
 			$(this).val($(this).val().replace(/[^a-zA-Z -]/ig,'').toUpperCase());
 		});
 
+		// NUMBER CHANGE
+		if ($('#content-change-number').length) {
+			var $form = $('#content-change-number form');
+			var $btn = $form.find('.btn');
+			var numberCurrent = $('#number-febo').val();
+			var numberSelected = $form.find('input:radio:checked').val();
+
+			$btn.prop('disabled', numberCurrent == numberSelected);
+
+			$form.find('input:radio').change(function() {
+				numberSelected = $form.find('input:radio:checked').val();
+				$btn.prop('disabled', numberCurrent == numberSelected);
+			});
+
+			$btn.click(function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+
+				showModalConfirm('Вы действительно хотите изменить номер?', 'Да', function() {
+					var $label = $('#number-febo').val(numberSelected).siblings('label');
+					$label.html($label.html().replace(numberCurrent, numberSelected));
+					// FIXME DEMO
+					// после смены должна пропадать возможность Выбрать новый номер в левой колонке
+					$('#number-febo').siblings('.change-link').stop().fadeOut(__animationSpeed);
+					//$form.submit();
+				});
+			});
+		}
+
 	})
 })(jQuery)
